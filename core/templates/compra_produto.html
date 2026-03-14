@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<div class="container mt-5 bg-light rounded-3">
+    <h1 class="display-5 fw-bold fs-1 ">Tem certeza que quer adicionar o produto {{produto.nome}} ao carrinho?</h1>
+    <a href="{% url 'produtos' %}" class="btn btn-primary">Voltar as compras </a>
+    <a href="{% url 'adicionar_carrinho' produto.id%}" class="btn btn-success ms-2">Ir ao carrinho</a>
+</div>
+
+{% endblock %}

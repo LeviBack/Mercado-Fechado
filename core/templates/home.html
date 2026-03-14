@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block conteudo %}
+
+<div class="container mt-5">
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Bem vindo ao Mercado Fechado</h1>
+            <p class="col-md-8 fs-4">
+                Aqui você encontra os melhores produtos com os melhores preços
+            </p>
+            <a href="{% url 'produtos' %}" class="btn btn-primary">Ver produtos</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

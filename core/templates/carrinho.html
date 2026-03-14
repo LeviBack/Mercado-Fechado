@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div class="container mb-4 mt-5 p-5 bg-light rounded-3">
+        {% if produtos %}
+            <h1 class="mb-4">Carrinho:</h1>
+            <div class="row">
+                {% for item in produtos %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                ({{item.quantidade}})<a href="{% url 'produto_detalhe' item.produto.id %}">{{item.produto.nome}}</a> 
+                                </h5>
+                                <p class="card-text">{{item.produto.descricao}}</p>
+                                <p class="fw-bold">{{item.produto.preco}}</p>
+                                <a href="{% url 'adicionar_carrinho' item.produto.id %}" class="btn btn-primary">+</a>
+                                <a href="{% url 'diminuir_item' item.produto.id %}" class="btn btn-secondary ms-2">-</a>
+                                <a href="{% url 'deletar_item' item.produto.id %}" class="btn btn-danger ms-2">Deletar produto</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <a href="{% url 'checkout_carrinho' %}" class="btn btn-success">Concluir compra</a>
+        </div>
+        {% else %}
+            <h1 class="dipslay-5 fs-1">Poxaa, Não tem nada no seu carrinho 🙁</h1>
+        
+        {% endif %}
+    </div>
+{% endblock %}

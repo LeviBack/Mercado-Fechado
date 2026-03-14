@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block conteudo %}
+    <div class="container mt-5 p-5 mb-4 bg-light rounded-3">
+        <h1 class="mb-4">Nossos produtos</h1>
+        <div class="row">
+            {% for produto in produtos %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'produto_detalhe' produto.id %}">
+                                {{produto.nome}}
+                            </a>
+                            </h5>
+                            <p class="card-text">{{produto.descricao}}</p>
+                            <p class="fw-bold">{{produto.preco}}</p>
+                            <a href="{% url 'comprar_produto' produto.id %}" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}

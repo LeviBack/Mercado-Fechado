@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <div class="container mt-5 bg-light rounded-3">
+        <h1 class="display-5 fs-1">Cadastre-se</h1>
+        <form action="" method="post">
+
+            {% csrf_token %}
+
+        <div class="input-group mb-3">
+                <input type="text" name="username" id="" class="form-control" placeholder="Seu nome">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="password" name="password" id="" class="form-control" placeholder="Sua senha">
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="email" name="email" id="" class="form-control" placeholder="Seu e-mail">
+        </div>
+
+        <button type="submit" class="btn bg-primary-subtle">Cadastrar</button>
+
+        <a href="{% url 'login_usuario' %}" class="btn btn-dark ms-3">Login</a>
+        
+        <a href="{% url 'logout_usuario' %}" class="btn btn-danger ms-3">Logout</a>
+        </form>
+    </div>
+{% endblock %}
